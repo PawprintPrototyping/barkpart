@@ -1,18 +1,14 @@
 import typing
 from enum import Enum
+
 from .areel import AReel
 
 
-class CapacitorMaterials(Enum):
-    mlcc = "MLCC"
-    tantalum = "TANTALUM"
-
-
-class CapacitorReel(AReel):
-    capacitance_farads: int
+class InductorReel(AReel):
+    inductance_henries: int
     tolerance: typing.Optional[float]
-    material: typing.Optional[CapacitorMaterials]
+    shielded: typing.Optional[bool]
 
     @property
     def part_type(self) -> str:
-        return "capacitor"
+        return "inductor"
